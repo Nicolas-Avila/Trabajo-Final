@@ -1,10 +1,27 @@
-<ion-item>
-  <ion-input labelPlacement="floating">
-    <div slot="label">Email <ion-text color="danger">(Required)</ion-text></div>
-  </ion-input>
-</ion-item>
-<ion-item>
-  <ion-input labelPlacement="floating" type="password">
-    <div slot="label">Contraseña <ion-text color="danger">(Required)</ion-text></div>
-  </ion-input>
-</ion-item>
+<ion-content class="ion-padding">
+<form [formGroup]="loginForm">
+  <ion-list>
+
+    <ion-item>
+      <ion-input labelPlacement="floating" formControlName="email" type="email">
+        <div slot="label">Email <ion-text color="danger">(Required)</ion-text></div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input labelPlacement="floating" formControlName="password" type="password">
+        <div slot="label">Contraseña <ion-text color="danger">(Required)</ion-text></div>
+      </ion-input>
+    </ion-item>
+
+    <ion-button size="small" (click)="onLogin()">Iniciar Sesión</ion-button>
+    <br>
+    <ion-text color="danger">{{ mensaje }}</ion-text>
+
+  </ion-list>
+</form>
+<p routerLink="/register" style="color: blue; cursor: pointer;">
+  ¿No tenés cuenta? Registrate
+</p>
+
+</ion-content>
